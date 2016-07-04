@@ -1,7 +1,5 @@
 var mymap = L.map('leafletmap');
 
-
-
 var SensorIcon = L.icon({
     iconUrl: 'icon/SensorIcon.png',
     shadowUrl: 'icon/SensorIconShdw.png',
@@ -23,13 +21,13 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     maxZoom: 25
 }).addTo(mymap);
 
-$('.pure-button').on('click', function(){
-  mymap.locate({setView: true, maxZoom: 14});
-});
+//$('.pure-button').on('click', function(){
+//  mymap.locate({setView: true, maxZoom: 14});
+//});
 
-mymap.on('locationfound', onLocationFound);
-function onLocationFound(e) {
-    console.log(e); 
+//mymap.on('locationfound', onLocationFound);
+//function onLocationFound(e) {
+//    console.log(e); 
     // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed. 
-    L.marker(e.latlng).addTo(mymap);
-}
+//    L.marker(e.latlng).addTo(mymap);
+//}
