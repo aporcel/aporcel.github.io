@@ -2,7 +2,7 @@
 html{background: #001;}
 body{
   max-width: 100%;
-  max-height: 90%;
+  height: 40em;
   margin: 1em auto;
   text-align: center;
   background: #ffe;
