@@ -1,33 +1,49 @@
-var mymap = L.map('leafletmap');
+var myCenter=new google.maps.LatLng(40.676,-74.008);
+var myMarker1 = new google.maps.LatLng(40.676759, -74.004602);
+var myMarker2 = new google.maps.LatLng(40.676828,-74.004637);
+var myMarker3 = new google.maps.LatLng(40.678174,-74.0181302);
+var myMarker4 = new google.maps.LatLng(40.679296,-74.012106);
+var image = {
+  url: 'icon/SensorIcon.png',
+  //size: new google.maps.Size(300, 472),
+  //origin: new google.maps.Point(0, 0),
+  //anchor: new google.maps.Point(102, 472),
+  scaledSize: new google.maps.Size(30, 47)
+};
 
-var SensorIcon = L.icon({
-    iconUrl: 'icon/SensorIcon.png',
-    shadowUrl: 'icon/SensorIconShdw.png',
-    iconSize:     [30, 47], // size of the icon
-    shadowSize:   [47, 30], // size of the shadow
-    iconAnchor:   [7, 47], // point of the icon which will correspond to marker's location
-    shadowAnchor: [10, 30],  // the same for the shadow
-    //popupAnchor:  [-3, -76] // point from which the popup should open relative to the conAnchor
-});
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:14,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
 
-var marker1 = L.marker([40.676759, -74.004602],{icon: SensorIcon}).addTo(mymap);
-var marker2 = L.marker([40.676828,-74.004637],{icon: SensorIcon}).addTo(mymap);
-var marker3 = L.marker([40.678174,-74.0181302],{icon: SensorIcon}).addTo(mymap);
-var marker4 = L.marker([40.679296,-74.012106],{icon: SensorIcon}).addTo(mymap);
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-mymap.setView([40.676,-74.008], 15);
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    maxZoom: 25
-}).addTo(mymap);
+  var marker1=new google.maps.Marker({
+    position:myMarker1,
+    icon:image
+   });
+  marker1.setMap(map);
+    
+  var marker2=new google.maps.Marker({
+    position:myMarker2,
+    icon:image
+  }); 
+  marker2.setMap(map);
+  
+  var marker3=new google.maps.Marker({
+    position:myMarker3,
+    icon:image
+  });
+  marker3.setMap(map);
+  
+  var marker4=new google.maps.Marker({
+    position:myMarker4,
+    icon:image
+  });
+  marker4.setMap(map);
+}
 
-//$('.pure-button').on('click', function(){
-//  mymap.locate({setView: true, maxZoom: 14});
-//});
-
-//mymap.on('locationfound', onLocationFound);
-//function onLocationFound(e) {
-//    console.log(e); 
-    // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed. 
-//    L.marker(e.latlng).addTo(mymap);
-//}
+google.maps.event.addDomListener(window, 'load', initialize);
