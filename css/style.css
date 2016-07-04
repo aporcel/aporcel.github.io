@@ -2,6 +2,7 @@
 html{background: #001;}
 body{
   max-width: 100%;
+  max-height: 90%;
   margin: 1em auto;
   text-align: center;
   background: #ffe;
@@ -10,7 +11,7 @@ body{
   border-radius: 3%;
 }
 #leafletmap{
-  height: 40em;
+  height: 30em;
   border: 1px solid #ccc;
 }
 button{
